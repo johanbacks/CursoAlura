@@ -1,0 +1,21 @@
+<meta charset="UTF-8">
+<input class="teste" placeholder="Digite de 1 a 10" />
+<button>Compare com o meu segredo</button>
+<script>
+  var secredo = Math.round(Math.random() * 10);
+   var input = document.querySelector("input.teste");
+   input.focus();
+   var button = document.querySelector("button")
+
+function verifica() {
+  if(input.value == secredo) {
+    alert("Você acertou")
+  }else {
+    alert("Errou")
+  }
+  input.value = "";
+  input.focus();
+}
+button.onclick = verifica;
+
+</script>
