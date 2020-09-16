@@ -3,6 +3,11 @@
 <h1>Receitas do Yan</h1>
 
 <script>
+  function mostra(text) {
+    document.write(text)
+    
+  }
+
     var ingredientes = [];
 
     var quantidade = parseInt(prompt("Quantos ingredientes você vai adicionar?"));
@@ -15,8 +20,9 @@
         var have = false;
 
         for(var posicao = 0; posicao < ingredientes.length; posicao++) {
-          if(ingredientes[posicao] == posicao){
+          if(ingredientes[posicao] == ingrediente){
             have = true;
+            alert("Igrendiente já cadastrado")
             break
           }
         }
@@ -27,5 +33,5 @@
 
     }
 
-    console.log(ingredientes);
+   mostra(ingredientes);
 </script>
