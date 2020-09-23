@@ -20,7 +20,13 @@
         pincel.fill();
       }      
     }
-
     tela.onmousemove = desenhaCirculo;
 
+    
+  tela.onmousedown = () => {
+    desenha = true;
+  };
+  tela.onmouseup  = () => {
+    desenha = false;
+  }
 </script>
