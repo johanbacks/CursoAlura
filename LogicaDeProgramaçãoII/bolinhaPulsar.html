@@ -20,4 +20,19 @@
         pincel.clearRect(0, 0, 600, 400);
     }
 
+    var bolinha = 19 
+    var tamanho = 0
+
+    function atualizaBolinha() {
+      limpaTela();
+        if(bolinha > 30){
+          tamanho = -1;
+        }else if (bolinha < 20 ){
+          tamanho = 1
+          
+        }
+        bolinha = bolinha + tamanho
+        desenhaCirculo(300, 200, bolinha , 'blue')
+    }
+    setInterval(atualizaBolinha, 50);
 </script>
