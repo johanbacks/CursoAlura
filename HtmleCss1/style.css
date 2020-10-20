@@ -1,11 +1,21 @@
-* {
-  margin: 0;
-  padding: 0;
+
+#banner {
+   width: 100%;
+   
 }
-body {
+.principal {
+  
+  padding: 30px;
+  border-radius: 5px;
   background: #cccccc;
 }
-p , h1 {
+.titlePrincipal {
+  padding-left: 20px;
+}
+p  {
+  text-align: center; 
+}
+.titleCenter{
   text-align: center; 
 }
 #missao {
@@ -14,4 +24,27 @@ p , h1 {
 em strong {
   color:#FF0000;
 }
+img {
+  border-radius: 8px;
+}
+.itens {
+   font-style: italic;
+}
+.beneficios {
+  background-color: white;
+  padding: 20px;
+}
+
+ul {
+  display: inline-block;
+  vertical-align: top;
+  width: 30%;
+  margin-right: 15%;
+
+}
+.imgBeneficios {
+  width: 50%;
+
+}
+
 
