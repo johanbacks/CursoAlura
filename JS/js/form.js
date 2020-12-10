@@ -3,25 +3,27 @@ botaoAdicionar.addEventListener("click", function(event){
     event.preventDefault();
 
     var form = document.querySelector("#form-adiciona");
-    // Extraindo informacoes do paciente do form
+
     var paciente = formPaciente(form);
-    // Cria a tr e a td do paciente
-    var pacienteTr = montaTr(paciente);
 
     var erros = validaPaciente(paciente)
-
     if(erros.length > 0 ) {
       exibeErro(erros)
       return ;  
     } 
     
-    var tabela = document.querySelector("#tabela-pacientes");
-
-    tabela.appendChild(pacienteTr);
+    adcionarPacienteTabela(paciente);
     form.reset();
     var mensagensErro = document.querySelector("#mensagens-erro")
     mensagensErro.innerHTML = ""
 });
+
+function adcionarPacienteTabela(paciente){
+  var pacienteTr = montaTr(paciente);
+  var tabela = document.querySelector("#tabela-pacientes");
+
+  tabela.appendChild(pacienteTr);
+}
 function exibeErro(erros) {
   var ul =  document.querySelector("#mensagens-erro");
   ul.innerHTML = ""

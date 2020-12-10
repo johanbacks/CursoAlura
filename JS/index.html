@@ -18,6 +18,7 @@
 		<main>
 			<section class="container">
 				<h2>Meus pacientes</h2>
+			
 				<label for="filtrar-tabela">Pesquise:</label>
 				<input type="text" name="filtro" id="filtrar-tabela" placeholder="Digite o nome do paciente">
 				<table>
@@ -71,7 +72,8 @@
 						</tr>
 					</tbody>
 				</table>
-
+				<span id="erro-ajax"class=invisivel>Erro ao buscar URL </span>
+				<button id="buscar-pacientes" class="botao bto-principal" >Buscar Pacientes</button>
 			</section>
 		</main>
 		<!-- formulario para adiconar usuario -->
@@ -103,6 +105,7 @@
 	<script src="js/form.js" ></script>
 	<script src="js/remover.js" ></script>
 	<script src="js/filtra.js"></script>
+	<script src="js/buscar.js"></script>
 
 	</body>
 </html>
