@@ -1,5 +1,6 @@
 var tempoInicial = $("#tempo-digitacao").text();
 var campo = $(".campo-digitacao");
+$("#botao-placar").click(mostraPlacar);
 
 $(function() {
   atualizaTamanhoFrase();
@@ -8,6 +9,11 @@ $(function() {
   inicializaMarcadores();
   $("#reiniciar").click(reniciaJogo);
 });
+
+function atualizaTempoInicial(tempo) {
+  tempoInicial = tempo
+  $("#tempo-digitacao").text(tempo);
+}
 
 function atualizaTamanhoFrase() {
   var frase = $(".frase").text();
@@ -29,8 +35,8 @@ function inicializaContadores() {
 }
 
 function inicializaCronometro() {
-  var tempoRestante = $("#tempo-digitacao").text();
   campo.one("focus" , function() {
+  var tempoRestante = $("#tempo-digitacao").text();
   var tempoID =  setInterval(function() {
     tempoRestante--;
     $("#tempo-digitacao").text(tempoRestante)
@@ -49,8 +55,9 @@ function finalizaJogo(){
 
 
 function inicializaMarcadores() {
-  var frase = $(".frase").text();
+  
   campo.on("input" , function() {
+  var frase = $(".frase").text();
   var digitado = campo.val();
   var comparavel = frase.substr(0 , digitado.length);
 
@@ -72,7 +79,19 @@ function inserePlacar() {
   linha.find(".botao-remover").click(removeLinha)
 
   corpoTabela.prepend(linha)
+  $(".placar").slideDown(500);
+  scrollPlacar()
 };
+
+
+function scrollPlacar() {
+  var posicaoPlacar = $(".placar").offset().top;
+
+  $("html, body").animate(
+  {
+      scrollTop: posicaoPlacar
+  }, 1000);
+}
 
 function novaLinha(usuario,palavras) {
   var linha = $("<tr>");
@@ -95,7 +114,12 @@ function novaLinha(usuario,palavras) {
 };
 function removeLinha() {   
     event.preventDefault();
-    $(this).parent().parent().remove()
+    var linha = $(this).parent().parent();
+    linha.fadeOut(1000);
+    setTimeout( () => {
+      linha.remove();
+    },1000)
+   
 };
 
 function reniciaJogo() {
@@ -110,6 +134,9 @@ function reniciaJogo() {
     campo.removeClass("borda-verde");
     campo.removeClass("borda-vermelha");
   })
+}
+function mostraPlacar() {
+  $(".placar").stop().slideToggle(600);
 }
 
 
