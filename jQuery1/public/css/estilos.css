@@ -26,3 +26,10 @@
 body {
   overflow:scroll
 }
+#frase-id{
+  width: 60px;
+}
+#erro {
+  color: red;
+  display: none;
+}
